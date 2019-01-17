@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+    <body>
+
+
+        <div th:fragment="header">
+            <h1>Thymeleaf Fragments sample</h1>
+        </div>
+
+        <p>Go to the next page to see fragments in action</p>
+
+        <aside>
+            <div>This is a sidebar</div>
+        </aside>
+
+        <div class="another">This is another sidebar</div>
+
+        <footer th:fragment="footer">
+            <a th:href="@{/layout/fragments}">Fragments Index</a> |
+            <a th:href="@{/layout/markup}">Markup inclussion</a> |
+            <a th:href="@{/layout/params}">Fragment params</a> |
+            <a th:href="@{/layout/other}">Other</a>
+        </footer>
+
+        <div th:fragment="formField (field, value, size)">
+            <div>
+                <label th:for="${#strings.toLowerCase(field)}"> <span
+                        th:text="${field}">Field</span>
+                </label>
+            </div>
+            <div>
+                <input type="text" th:id="${#strings.toLowerCase(field)}"
+                       th:name="${#strings.toLowerCase(field)}" th:value="${value}"
+                       th:size="${size}">
+            </div>
+        </div>
+
+    </body>
+</html>
